@@ -1,0 +1,18 @@
+<div class="container">
+
+  <h1>Add a tag to <%= @plant.name %></h1>
+  <%= simple_form_for [@plant, @plant_tag] do |f| %>
+    <%= f.input :tag,
+      collection: Tag.pluck(:name),
+      include_hidden: false,
+      include_blank: false,
+      input_html: {
+        multiple: true,
+        class: 'select2'
+      } %>
+      }
+    <%= f.submit 'add', class: 'btn btn-primary' %>
+  <% end %>
+
+</div>
+
